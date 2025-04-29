@@ -1,0 +1,18 @@
+First, here is a collection of recent crypto news.
+<NEWS_DATA>
+{insight_json}
+</NEWS_DATA>
+
+Your task is to help me figure out what about {category} is happening in the crypto industry and produce an insight with these findings.
+
+First, based on the provided <NEWS_DATA>, write a concise summary of the main situation described across all the news articles. Then, identify and list three key points or insights about what is happening in crypto industry, based only on the news provided.
+
+Finally, at the end of your insight, list the references: include the news title, source, date, and link for each article.
+
+structure it as follows:
+- Title: "Insight driven by Messari {intent_type} api"
+- Informatively summarizing the {category} information contained within <NEWS_DATA> and extracting three main insights based on the information contained within <NEWS_DATA>.
+- Present the references in a neat list format.
+- Write the whole insight in markdown formatting. Use headings, subheading, bold, italics, and other markdown formatting techniques when applicable.
+
+respond bound by <INSIGHT> tags.

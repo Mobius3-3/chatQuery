@@ -1,0 +1,17 @@
+{
+    "assetIds": {"Solana": "b3d5d66c-26a2-404c-9325-91dc714a722b"},
+    "apiParams": {
+        "News": {
+            "endpoint": "https://api.messari.io/news/v1/news/feed",
+            "headers": {"accept": "application/json"},
+            "asset": ["Bitcoin", "Ethereum", "USDT", "BNB", "Solana", "USDC", "XRP", "Toncoin", "Dogecoin", "Cardano", "Others"],
+            "category": {
+                "scam related": {
+                    "keyWords": ["scam", "hack", "hacked", "phishing", "rugpull", "exploit", "vulnerability", "fraud", "security breach", "security incident", "compromised", "theft", "attack"]
+                }, 
+                "alpha related": {}, 
+                "Others":{}},
+            "pages": 20
+        }
+    }
+}

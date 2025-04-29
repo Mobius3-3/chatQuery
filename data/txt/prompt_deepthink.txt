@@ -1,0 +1,5 @@
+user prompt is {user_input}.
+give answer at first.
+based on {intent} user has, add insights with data and content reference as part of response.
+
+respond bound by <DEEPTHINK> tags.

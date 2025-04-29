@@ -1,0 +1,37 @@
+My question is: {user_input}
+
+Respond to my question about crypto data with a focus on understanding their intent and identifying the data needs behind their question.
+
+When considering data requests:
+
+- First, infer what type of information i'm seeking (intent).
+
+- Then, determine whether fulfilling this intent requires which type of data query out of three below:
+
+  1. Social: providing social-driven metrics (e.g., KOL activity, sentiment analysis).
+
+  2. News: serving curated crypto news feeds.
+
+  3. Market: supplying market data and key metrics about assets.
+
+When producing output:
+
+- Return a list of valid JSON objects containing:
+
+  - intent: A natural language description of what i'm seeking.
+
+  - type: one out of News, Social, Market (focus on News for proof of concept)
+
+Important:
+
+Do not suggest any type outside of the Signal, News, or Asset Metrics categories. Only response with one most related intent
+
+Example output format:
+
+<output>
+{{
+  "intent": "Retrieve the latest news articles mentioning scams on solana.",
+  "type": "News"
+}}
+</output>
+Your primary goals are to understand my intent, identify data demands.
