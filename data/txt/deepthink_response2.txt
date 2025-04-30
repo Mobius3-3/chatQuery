@@ -21,7 +21,7 @@ Recent news highlights several scams and security issues within the Solana ecosy
 - **Alleged Meme Coin Scam**: The news article detailing the lawsuit against Solana’s Meteora for an alleged meme coin scam underscores the importance of due diligence when investing in new projects. Investors must be cautious of projects that lack transparency and have ambiguous business models.  
   - **Reference**: *Solana’s Meteora Hit With Lawsuit Over Alleged Meme Coin Scam*, CryptoPotato, 2025-04-23. [Read More](https://cryptopotato.com/solanas-meteora-hit-with-lawsuit-over-alleged-meme-coin-scam/)
 
-- **Security Flaw in Phantom Wallet**: Another significant concern is the lawsuit against Phantom Wallet over a $500,000 meme coin theft linked to an alleged security flaw. This incident highlights the necessity of using secure and reputable wallets, emphasizing that even established platforms can have vulnerabilities.  
+- **Security Flaw in Phantom Wallet**: Another significant concern is the lawsuit against Phantom Wallet ovear a $500,000 meme coin theft linked to an alleged security flaw. This incident highlights the necessity of using secure and reputable wallets, emphasizing that even established platforms can have vulnerabilities.  
   - **Reference**: *Phantom Wallet Sued Over $500K Meme Coin Theft Linked to Alleged Security Flaw*, Decrypt, 2025-04-15. [Read More](https://decrypt.co/314783/phantom-wallet-sued-500k-meme-coin-theft-alleged-security-flaw)
 
 - **Loopscale Exploit**: The recent exploit of $5.8 million in the Loopscale DeFi protocol serves as a reminder of the security risks associated with new projects. Potential investors should be cautious of projects with insufficient security audits and those that rush to launch without proper testing.  

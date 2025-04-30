@@ -30,7 +30,7 @@ Example output format:
 
 <output>
 {{
-  "intent": "Retrieve the latest news articles mentioning scams on solana.",
+  "intent": "Get recent reports about hacks involving BTC.",
   "type": "News"
 }}
 </output>

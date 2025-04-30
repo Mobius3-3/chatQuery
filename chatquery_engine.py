@@ -4,9 +4,9 @@ from datetime import datetime
 import os, requests
 import pandas as pd
 from fuzzywuzzy import fuzz
-from utils import cache, mock_data_provider_api, timestamp_since, call_llm, MESSARI_API_KEY_TYPE
+from utils import *
 
-#ToDo: modularize insight engine which includes intent query, insight generate
+#ToDo: modularize intent, insight generate engines
 DATA_PROVIDER = mock_data_provider_api()
 
 # ---------------------- Prompt Building ----------------------
@@ -20,11 +20,6 @@ def _prompt(user_input: str) -> list:
     messages.append({"role": "user","content": user_message})
     return messages
 
-# ---------------------- Parse LLM JSON Output ----------------------
-def _parse_llm_output(output, key_word):
-    # Extract JSON part manually
-    return output.split("<"+key_word+">")[1].split("</"+key_word+">")[0] if key_word in output else output
-
 # ---------------------- Extract Intent ----------------------
 def _parse_intent(prompt_messages: str, mode="test") -> dict:
     if mode == "test":
@@ -35,7 +30,7 @@ def _parse_intent(prompt_messages: str, mode="test") -> dict:
         if intent.strip() in ["", None]:
             raise Exception("invald intent from calling llm")
      
-    intent = json.loads(_parse_llm_output(intent, "output"))
+    intent = json.loads(parse_llm_output(intent, "output"))
     return intent
 
 def intent_engine(user_input, mode="test"):
@@ -199,17 +194,20 @@ def deepthink(user_input, intent, insight_json):
     # Generate insight
     insight_messages = [
         {"role": "system", "content": cache("prompt_system")},
-        {"role": "user", "content": USER_MESSAGE_INSIGHT.format(category=intent['type'],insight_json=insight_json, intent_type=intent['type'])}
-    ]
+        {"role": "user", "content": 
+         USER_MESSAGE_INSIGHT.format(category=intent['type'],
+                                     insight_json=insight_json, intent_type=intent['type'])}]
     
     insight_response = call_llm(insight_messages)
 
     USER_MESSAGE_DEEPTHINK = cache("prompt_deepthink")
 
     insight_messages.append({"role": "assistant", "content": insight_response})
-    insight_messages.append({"role": "user", "content": USER_MESSAGE_DEEPTHINK.format(user_input=user_input, intent=intent['intent'])})
+    insight_messages.append({"role": "user", 
+                             "content": USER_MESSAGE_DEEPTHINK.format(
+                                        user_input=user_input, intent=intent['intent'])})
     deepthink_response = call_llm(insight_messages)
-    deepthink_answer = deepthink_response.split("<DEEPTHINK>")[1].split("</DEEPTHINK>")[0] if "<DEEPTHINK>" in deepthink_response else deepthink_response
+    deepthink_answer = parse_llm_output(deepthink_response, "DEEPTHINK")
     return deepthink_answer
 
 # ---------------------- Main Pipeline Entry ----------------------

@@ -6,6 +6,11 @@ MESSARI_API_KEY_TYPE = "MESSARI_API_KEY_0"
 
 load_dotenv()
 
+# parse llm output
+def parse_llm_output(output, key_word):
+    # Extract JSON part manually
+    return output.split("<"+key_word+">")[1].split("</"+key_word+">")[0] if key_word in output else output
+
 # Utility to get timestamp in milliseconds for date X days ago (default: 30 days ago)
 def timestamp_since(days=30):
     # Current UTC time
